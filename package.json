@@ -7,12 +7,13 @@
   "author": "palcisto <patrickalcisto@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "node .node-version.js gulp build",
+    "build": "node .node-version.js && gulp build",
     "preinstall": "node .node-version.js",
     "prestart": "node .node-version.js",
+    "pretest": "node .node-version.js",
     "start": "gulp watch",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "node .node-version.js && jest --watch"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
