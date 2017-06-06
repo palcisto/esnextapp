@@ -3,6 +3,7 @@ const gulp        = require('gulp');
 const gUtil       = require('gulp-util');
 const path        = require('path');
 const webpack     = require('webpack');
+const nodemon    = require('nodemon');
 const runSequence = require('run-sequence');
 const log         = gUtil.log;
 const colors      = gUtil.colors;
@@ -23,6 +24,10 @@ const paths       = {
 gulp.task('watch', ['build'], (cb) => {
   // initialize watch functionality with BrowserSync here
   // to re-build assets on file changes, then reload browser
+  nodemon({
+    script: 'app.js', ext: 'js html', env: { 'NODE_ENV': 'development' }
+  });
+
   gulp.watch(paths.src.js, () => {
     runSequence('webpack');
   });
